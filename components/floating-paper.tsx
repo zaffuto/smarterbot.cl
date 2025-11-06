@@ -6,46 +6,70 @@ import { FileText } from "lucide-react"
 
 export function FloatingPaper({ count = 5 }) {
   const [dimensions, setDimensions] = useState({ width: 1200, height: 800 })
+  const [papers, setPapers] = useState<
+    Array<{
+      initialX: number
+      initialY: number
+      pathX: number[]
+      pathY: number[]
+      duration: number
+    }>
+  >([])
 
   useEffect(() => {
-    // Update dimensions only on client side
-    setDimensions({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    })
+    if (typeof window === "undefined") return
 
-    const handleResize = () => {
+    const updateDimensions = () => {
       setDimensions({
         width: window.innerWidth,
         height: window.innerHeight,
       })
     }
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    const rafId = requestAnimationFrame(updateDimensions)
+    window.addEventListener("resize", updateDimensions)
+
+    return () => {
+      cancelAnimationFrame(rafId)
+      window.removeEventListener("resize", updateDimensions)
+    }
   }, [])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const rafId = requestAnimationFrame(() => {
+      setPapers(
+        Array.from({ length: count }).map(() => ({
+          initialX: Math.random(),
+          initialY: Math.random(),
+          pathX: [Math.random(), Math.random(), Math.random()],
+          pathY: [Math.random(), Math.random(), Math.random()],
+          duration: 20 + Math.random() * 10,
+        }))
+      )
+    })
+
+    return () => cancelAnimationFrame(rafId)
+  }, [count])
 
   return (
     <div className="relative w-full h-full">
-      {Array.from({ length: count }).map((_, i) => (
+      {papers.map((paper, i) => (
         <motion.div
           key={i}
           className="absolute"
           initial={{
-            x: Math.random() * dimensions.width,
-            y: Math.random() * dimensions.height,
+            x: paper.initialX * dimensions.width,
+            y: paper.initialY * dimensions.height,
           }}
           animate={{
-            x: [Math.random() * dimensions.width, Math.random() * dimensions.width, Math.random() * dimensions.width],
-            y: [
-              Math.random() * dimensions.height,
-              Math.random() * dimensions.height,
-              Math.random() * dimensions.height,
-            ],
+            x: paper.pathX.map((value) => value * dimensions.width),
+            y: paper.pathY.map((value) => value * dimensions.height),
             rotate: [0, 180, 360],
           }}
           transition={{
-            duration: 20 + Math.random() * 10,
+            duration: paper.duration,
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
           }}

@@ -45,7 +45,7 @@ export default function TestimonialsSection() {
   ]
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6 bg-black/10">
+    <section id="casos" className="py-16 md:py-24 px-4 md:px-6 bg-black/10">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,11 @@ export default function TestimonialsSection() {
                 </div>
               </div>
 
-              <p className="text-gray-300 text-sm md:text-base mb-4 leading-relaxed">"{testimonial.text}"</p>
+              <p className="text-gray-300 text-sm md:text-base mb-4 leading-relaxed">
+                <span aria-hidden="true">&ldquo;</span>
+                {testimonial.text}
+                <span aria-hidden="true">&rdquo;</span>
+              </p>
 
               <div className="border-t border-white/10 pt-4">
                 <div className="flex justify-between items-start mb-2">

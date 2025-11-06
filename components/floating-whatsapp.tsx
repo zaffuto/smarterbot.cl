@@ -10,17 +10,34 @@ export default function FloatingWhatsApp() {
   const [showTooltip, setShowTooltip] = useState(false)
 
   useEffect(() => {
-    // Show the floating button after 3 seconds
-    const timer = setTimeout(() => {
+    const timers: Array<ReturnType<typeof setTimeout>> = []
+    let cancelled = false
+
+    const visibilityTimer = setTimeout(() => {
+      if (cancelled) return
       setIsVisible(true)
-      // Show tooltip for 5 seconds
-      setTimeout(() => {
+
+      const tooltipShowTimer = setTimeout(() => {
+        if (cancelled) return
         setShowTooltip(true)
-        setTimeout(() => setShowTooltip(false), 5000)
+
+        const tooltipHideTimer = setTimeout(() => {
+          if (cancelled) return
+          setShowTooltip(false)
+        }, 5000)
+
+        timers.push(tooltipHideTimer)
       }, 1000)
+
+      timers.push(tooltipShowTimer)
     }, 3000)
 
-    return () => clearTimeout(timer)
+    timers.push(visibilityTimer)
+
+    return () => {
+      cancelled = true
+      timers.forEach((timer) => clearTimeout(timer))
+    }
   }, [])
 
   const handleWhatsAppClick = () => {
