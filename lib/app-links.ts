@@ -1,4 +1,4 @@
-const APP_BASE_URL = "http://app.smarterbot.cl"
+const APP_BASE_URL = "https://app.smarterbot.cl"
 
 export function buildAppUrl(token: string) {
   const url = new URL(APP_BASE_URL)
