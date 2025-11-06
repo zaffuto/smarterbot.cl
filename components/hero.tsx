@@ -5,10 +5,11 @@ import { motion } from "framer-motion"
 import { MessageCircle, Clock, CheckCircle } from "lucide-react"
 import { FloatingPaper } from "@/components/floating-paper"
 import { RoboAnimation } from "@/components/robo-animation"
+import { openAppWithToken } from "@/lib/app-links"
 
 export default function Hero() {
   const handleContactClick = () => {
-    window.open("https://wa.me/56979540471", "_blank")
+    openAppWithToken("hero-automatizar")
   }
 
   const handleServicesClick = () => {

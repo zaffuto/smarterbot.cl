@@ -7,14 +7,15 @@ import { Bot, Menu, X } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState } from "react"
+import { openAppWithToken } from "@/lib/app-links"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const CTA_LABEL = "ACCESO"
-  const CTA_URL = "http://app.smarterbot.cl"
+  const CTA_TOKEN = "navbar-acceso"
 
   const handleContactClick = () => {
-    window.open(CTA_URL, "_blank")
+    openAppWithToken(CTA_TOKEN)
   }
 
   const handleServicesClick = () => {

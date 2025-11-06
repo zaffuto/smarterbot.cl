@@ -3,14 +3,10 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Calendar, Smartphone, Clock, Wrench, Bot } from "lucide-react"
+import { openAppWithToken } from "@/lib/app-links"
 
 export default function ServicesSection() {
-  const handleContactClick = () => {
-    window.open("https://wa.me/56979540471", "_blank")
-  }
-  const handleAppClick = () => {
-    window.open("http://app.smarterbot.cl", "_blank")
-  }
+  const openApp = (token: string) => () => openAppWithToken(token)
 
   const services = [
     {
@@ -108,7 +104,7 @@ export default function ServicesSection() {
                     ? "bg-green-600 hover:bg-green-700 text-white"
                     : "bg-white/10 hover:bg-green-600 text-white"
                 }`}
-                onClick={handleContactClick}
+                onClick={openApp(`services-card-${index}`)}
               >
                 Automatizar ahora
               </Button>
@@ -130,7 +126,7 @@ export default function ServicesSection() {
           <Button
             size="lg"
             className="bg-green-600 hover:bg-green-700 text-white px-12 py-4 text-lg"
-            onClick={handleAppClick}
+            onClick={openApp("services-main-cta")}
           >
             Automatizar mi tarea en 90 minutos, $35.000
           </Button>

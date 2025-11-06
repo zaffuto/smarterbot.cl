@@ -97,7 +97,7 @@ export default function FloatingWhatsApp() {
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
               }}
-              className="absolute inset-0 rounded-full bg-green-500"
+              className="absolute inset-0 rounded-full bg-green-500 pointer-events-none"
             />
           </motion.div>
         </motion.div>

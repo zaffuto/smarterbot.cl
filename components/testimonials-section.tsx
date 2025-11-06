@@ -3,10 +3,11 @@
 import { motion } from "framer-motion"
 import { Quote, Star, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { openAppWithToken } from "@/lib/app-links"
 
 export default function TestimonialsSection() {
   const handleContactClick = () => {
-    window.open("https://wa.me/56979540471", "_blank")
+    openAppWithToken("testimonials-cta")
   }
 
   const testimonials = [

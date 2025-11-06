@@ -3,10 +3,11 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { MapPin, Mail, Phone, MessageCircle, Clock, CheckCircle } from "lucide-react"
+import { openAppWithToken } from "@/lib/app-links"
 
 export default function ContactSection() {
-  const handleWhatsAppClick = () => {
-    window.open("https://wa.me/56979540471", "_blank")
+  const handleAppClick = () => {
+    openAppWithToken("contact-cta")
   }
 
   return (
@@ -96,7 +97,7 @@ export default function ContactSection() {
               <Button
                 size="lg"
                 className="w-full bg-green-600 hover:bg-green-700 text-white py-4 text-lg"
-                onClick={handleWhatsAppClick}
+                onClick={handleAppClick}
               >
                 <MessageCircle className="mr-2 h-6 w-6" />
                 Automatizar mi tarea ahora

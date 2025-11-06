@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { Check, Star, Wrench, Clock, Bot, Smartphone, Calendar } from "lucide-react"
+import { openAppWithToken } from "@/lib/app-links"
 
 export default function PricingSection() {
   const handlePlanClick = () => {
-    window.open("http://app.smarterbot.cl", "_blank")
+    openAppWithToken("pricing-contratar")
   }
 
   const handleDemoClick = () => {
