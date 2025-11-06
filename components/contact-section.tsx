@@ -6,7 +6,7 @@ import { MapPin, Mail, Phone, MessageCircle, Clock, CheckCircle } from "lucide-r
 
 export default function ContactSection() {
   const handleWhatsAppClick = () => {
-    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
+    window.open("https://wa.me/56979540471", "_blank")
   }
 
   return (

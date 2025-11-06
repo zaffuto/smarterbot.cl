@@ -41,7 +41,7 @@ export default function FloatingWhatsApp() {
   }, [])
 
   const handleWhatsAppClick = () => {
-    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
+    window.open("https://wa.me/56979540471", "_blank")
   }
 
   return (
