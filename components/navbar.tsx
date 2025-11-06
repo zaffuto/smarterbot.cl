@@ -10,9 +10,11 @@ import { useState } from "react"
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const CTA_LABEL = "ACCESO"
+  const CTA_URL = "http://app.smarterbot.cl"
 
   const handleContactClick = () => {
-    window.open("https://wa.me/56979540471", "_blank")
+    window.open(CTA_URL, "_blank")
   }
 
   const handleServicesClick = () => {
@@ -38,8 +40,12 @@ export default function Navbar() {
       </div>
 
       <div className="hidden md:flex items-center space-x-4">
-        <Button className="bg-green-600 hover:bg-green-700 text-white" onClick={handleContactClick}>
-          ACCESO
+        <Button
+          className="bg-green-600 hover:bg-green-700 text-white"
+          onClick={handleContactClick}
+          aria-label={CTA_LABEL}
+        >
+          {CTA_LABEL}
         </Button>
       </div>
 
@@ -65,8 +71,12 @@ export default function Navbar() {
               Contacto
             </NavLink>
             <div className="pt-4 border-t border-white/10">
-              <Button className="bg-green-600 hover:bg-green-700 text-white w-full" onClick={handleContactClick}>
-                ACCESO
+              <Button
+                className="bg-green-600 hover:bg-green-700 text-white w-full"
+                onClick={handleContactClick}
+                aria-label={CTA_LABEL}
+              >
+                {CTA_LABEL}
               </Button>
             </div>
           </div>

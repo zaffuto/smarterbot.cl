@@ -8,6 +8,9 @@ export default function ServicesSection() {
   const handleContactClick = () => {
     window.open("https://wa.me/56979540471", "_blank")
   }
+  const handleAppClick = () => {
+    window.open("http://app.smarterbot.cl", "_blank")
+  }
 
   const services = [
     {
@@ -127,7 +130,7 @@ export default function ServicesSection() {
           <Button
             size="lg"
             className="bg-green-600 hover:bg-green-700 text-white px-12 py-4 text-lg"
-            onClick={handleContactClick}
+            onClick={handleAppClick}
           >
             Automatizar mi tarea en 90 minutos, $35.000
           </Button>
