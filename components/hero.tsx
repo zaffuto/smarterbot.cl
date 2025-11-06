@@ -8,7 +8,7 @@ import { RoboAnimation } from "@/components/robo-animation"
 
 export default function Hero() {
   const handleContactClick = () => {
-    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
+    window.open("https://wa.me/56979540471", "_blank")
   }
 
   const handleServicesClick = () => {

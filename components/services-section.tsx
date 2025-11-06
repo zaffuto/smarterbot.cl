@@ -6,7 +6,7 @@ import { Calendar, Smartphone, Clock, Wrench, Bot } from "lucide-react"
 
 export default function ServicesSection() {
   const handleContactClick = () => {
-    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
+    window.open("https://wa.me/56979540471", "_blank")
   }
 
   const services = [

@@ -12,7 +12,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleContactClick = () => {
-    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
+    window.open("https://wa.me/56979540471", "_blank")
   }
 
   const handleServicesClick = () => {
@@ -39,7 +39,7 @@ export default function Navbar() {
 
       <div className="hidden md:flex items-center space-x-4">
         <Button className="bg-green-600 hover:bg-green-700 text-white" onClick={handleContactClick}>
-          Consultar ahora
+          ACCESO
         </Button>
       </div>
 
@@ -66,7 +66,7 @@ export default function Navbar() {
             </NavLink>
             <div className="pt-4 border-t border-white/10">
               <Button className="bg-green-600 hover:bg-green-700 text-white w-full" onClick={handleContactClick}>
-                Consultar ahora
+                ACCESO
               </Button>
             </div>
           </div>

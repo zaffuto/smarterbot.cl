@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export default function TestimonialsSection() {
   const handleContactClick = () => {
-    window.open("https://api.whatsapp.com/send/?phone=56979540471", "_blank")
+    window.open("https://wa.me/56979540471", "_blank")
   }
 
   const testimonials = [
